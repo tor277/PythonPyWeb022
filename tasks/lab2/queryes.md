@@ -678,8 +678,6 @@ print(filtered_data.reverse())
 Возвращает новый QuerySet, который использует SELECT DISTINCT в своем SQL-запросе. 
 Это исключает повторяющиеся строки из результатов запроса. 
 
-Если вы используете серверную часть базы данных, отличную от PostgreSQL, например MySQL или SQLite, вы столкнетесь 
-ошибкой, поскольку эти системы баз данных не поддерживают предложение DISTINCT ON.
 ```python
 print(Entry.objects.order_by('author', 'pub_date').distinct('author', 'pub_date'))  # Не работает в SQLite
 # distinct('author', 'pub_date') - оставляет уникальные строки по колонкам author, pub_date
