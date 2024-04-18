@@ -7,6 +7,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Author(models.Model):
 
+    objects = None
     phone_regex = RegexValidator(
             regex=r'^\+79\d{9}$',
             message="Телефонный номер должен быть формата: '+79123456789'."
@@ -133,6 +134,7 @@ class AuthorProfile(models.Model):
 
 
 class Entry(models.Model):
+    objects = None
     text = models.TextField(verbose_name="Текст статьи",
                             )
     author = models.ForeignKey("Author", on_delete=models.CASCADE, related_name='entries')

@@ -13,6 +13,7 @@ class Blog(models.Model):
     name - название блога
     tagline - используется для хранения краткого описания или слогана блога
     """
+    objects = None
     name = models.CharField(max_length=100, unique=True, verbose_name="Название")
     tagline = models.TextField(verbose_name="Слоган")
 
@@ -52,6 +53,7 @@ class AuthorProfile(models.Model):
     bio - текст о себе
     phone_number - номер телефона с валидацией при внесении
     """
+    objects = None
     author = models.OneToOneField(Author, on_delete=models.CASCADE)
     bio = models.TextField(blank=True,
                            null=True,
@@ -97,6 +99,7 @@ class Entry(models.Model):
     tags - теги статьи (отношение многие-ко-многим)
 
     """
+    objects = None
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='entries')
     headline = models.CharField(max_length=255)
     body_text = models.TextField()
