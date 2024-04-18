@@ -32,6 +32,7 @@ class Author(models.Model):
     email - адрес электронной почты автора
     """
 
+    objects = None
     name = models.CharField(max_length=200, verbose_name="Имя")
     email = models.EmailField(unique=True, verbose_name="Почта")
 
